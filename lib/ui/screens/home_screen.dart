@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_parcel_app/ui/widgets/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,6 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       vertical: 64
                     ),
                    child: Column(
+                     mainAxisAlignment: MainAxisAlignment.end,
+                     crossAxisAlignment: CrossAxisAlignment.start,
                      children:[
                        Text('Enter parcel number or scar QRcode',
                        style: Theme.of(context).textTheme.headline5,
@@ -97,26 +100,74 @@ class _HomeScreenState extends State<HomeScreen> {
                            ],
                          ),
                        ),
-                     ]
-                   ),
-                 )),
-                 SizedBox(
-                   height: 48,
-                   width: double.infinity,
-                   child:TextButton(
-                     onPressed:(){},
-                     child: Text('Track parcel',
-                     style: Theme.of(context).textTheme.bodyText1
-                     ),
-                     style: Theme.of(context).textButtonTheme.style,
-                   ),
-                 ) 
+                        SizedBox(
+                          height: 48,
+                          width: double.infinity,
+                          child:TextButton(
+                            onPressed:(){},
+                            child: Text('Track parcel',
+                            style: Theme.of(context).textTheme.bodyText1
+                            ),
+                            style: Theme.of(context).textButtonTheme.style,
+                          ),
+                        ) ,
+                     ],
+                   ), 
+                 ),
+                 ),
                 ]
               ),
             ),
-          )
+          ),
+          const SliverPadding(
+            padding: EdgeInsets.only(
+              top: 32
+              ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal:24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'My parcels',
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                ],
+              ),
+            )
+            ]),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate((_,int index){
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26,vertical: 16),
+                child: Container(
+                  height: 174,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: Theme.of(context).backgroundColor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context).shadowColor,
+                        spreadRadius: 0,
+                        blurRadius: 10,
+                        offset: const Offset(0,0),
+                      ),
+                    ]
+                  ),
+                ),
+              );
+            }
+              
+            )
+            )
         ],
       ),
+      bottomNavigationBar: MyBottomNavigationBar(),
     );
   }
 }
