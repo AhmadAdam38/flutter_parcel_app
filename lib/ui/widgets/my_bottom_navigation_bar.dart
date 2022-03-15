@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-  MyBottomNavigationBar({Key? key}) : super(key: key);
+  const MyBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
-
-  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
+  _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  int _selectedIndex=0;
-  
-  void _onItemTapped(int index){
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex=index;
+      _selectedIndex = index;
     });
   }
 
@@ -27,22 +26,22 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       unselectedLabelStyle: Theme.of(context).textTheme.headline5,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: _selectedIndex==0
-            ? SvgPicture.asset('assets/images/icon_my_parcels.svg') 
-            : SvgPicture.asset('assets/images/icon_my_parcels_grey.svg'),
-            label: 'My parcels' 
+          icon: _selectedIndex == 0
+              ? SvgPicture.asset('assets/images/icon_my_parcels.svg')
+              : SvgPicture.asset('assets/images/icon_my_parcels_grey.svg'),
+          label: 'My parcels',
         ),
         BottomNavigationBarItem(
-          icon: _selectedIndex==1
-            ? SvgPicture.asset('assets/images/icon_send_parcel.svg') 
-            : SvgPicture.asset('assets/images/icon_send_parcel_grey.svg'),
-            label: 'My parcels' 
+          icon: _selectedIndex == 1
+              ? SvgPicture.asset('assets/images/icon_send_parcel.svg')
+              : SvgPicture.asset('assets/images/icon_send_parcel_grey.svg'),
+          label: 'Send parcel',
         ),
         BottomNavigationBarItem(
-          icon: _selectedIndex==2
-            ? SvgPicture.asset('assets/images/icon_parcel_center.svg') 
-            : SvgPicture.asset('assets/images/icon_parcel_center_grey.svg'),
-            label: 'My parcels' 
+          icon: _selectedIndex == 2
+              ? SvgPicture.asset('assets/images/icon_parcel_center.svg')
+              : SvgPicture.asset('assets/images/icon_parcel_center_grey.svg'),
+          label: 'Parcel center',
         ),
       ],
       currentIndex: _selectedIndex,

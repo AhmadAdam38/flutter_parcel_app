@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_parcel_app/ui/screens/screens.dart';
+import 'ui/screens/screens.dart';
+
 void main() {
   runApp(
     const App(),
@@ -50,7 +51,7 @@ class App extends StatelessWidget {
             color: const Color(0xFF111111),
             fontSize: 16,
             fontWeight: FontWeight.bold,
-           ),
+          ),
           headline4: GoogleFonts.poppins(
             color: const Color(0xFF111111),
             fontSize: 12,
@@ -78,7 +79,7 @@ class App extends StatelessWidget {
           ),
         ),
       ),
-      home:  HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
